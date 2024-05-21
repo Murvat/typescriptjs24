@@ -6,10 +6,10 @@ import { error } from "console";
 import { HtmlAttributes } from "csstype";
 
 // тут объявляете s_1
-let s_1: any;
+let s_1: string;
 function f01(): void {
-    s_1 = document.querySelector('input.i-1') as HTMLInputElement;
-    console.log(s_1.value)
+    s_1 = (<HTMLInputElement>document.querySelector('input.i-1')).value;
+    console.log(s_1);
 
 }
 
@@ -20,10 +20,10 @@ document.querySelector('.b-1').addEventListener('click', f01);
 
 // тут объявляете res_2
 
-let res: any
+let res: number;
 function f02(): void {
-    res = (<HTMLInputElement>document.querySelector('input.i-2'))
-    console.log(typeof +res.value)
+    res = parseInt((<HTMLInputElement>document.querySelector('input.i-2')).value)
+    console.log(res)
 }
 
 document.querySelector('.b-2').addEventListener('click', f02);
@@ -35,13 +35,13 @@ document.querySelector('.b-2').addEventListener('click', f02);
 let n_31: number = 22;
 let n_32: number = 44;
 
-let max_3: number
+let max_3: number;
 
 function f03(): void {
     if (n_31 > n_32) {
-        max_3 = n_31
+        max_3 = n_31;
     } else {
-        max_3 = n_32
+        max_3 = n_32;
     }
     console.log(max_3);
 
@@ -56,15 +56,15 @@ document.querySelector('.b-3').addEventListener('click', f03);
 let min_4: number
 
 function f04(): void {
-    let input1: any = (<HTMLInputElement>document.querySelector('input.i-41'));
-    let input2: any = (<HTMLInputElement>document.querySelector('input.i-42'));
+    let input1: number = parseInt((<HTMLInputElement>document.querySelector('input.i-41')).value);
+    let input2: number = parseInt((<HTMLInputElement>document.querySelector('input.i-42')).value);
 
-    if (input1.value < input2.value) {
-        min_4 = input1.value
+    if (input1 < input2) {
+        min_4 = input1;
     } else {
-        min_4 = input2.value
+        min_4 = input2;
     }
-    console.log(min_4)
+    console.log(min_4);
 }
 
 document.querySelector('.b-4').addEventListener('click', f04);
@@ -79,14 +79,14 @@ let sum_5: number;
 let error_5: boolean = false;
 
 function f05(): void {
-    let input1: any = (<HTMLInputElement>document.querySelector('input.i-51'))
-    let input2: any = (<HTMLInputElement>document.querySelector('input.i-52'))
+    let input1: number = parseInt((<HTMLInputElement>document.querySelector('input.i-51')).value)
+    let input2: number = parseInt((<HTMLInputElement>document.querySelector('input.i-52')).value)
 
-    sum_5 = Number(input1.value) + Number(input2.value);
+    sum_5 = input1 + input2;
     if (sum_5 > 0) {
-        console.log(sum_5, error_5)
+        console.log(sum_5, error_5);
     } else {
-        console.log(sum_5, !error_5)
+        console.log(sum_5, !error_5);
     }
 
 
@@ -100,14 +100,14 @@ document.querySelector('.b-5').addEventListener('click', f05);
 
 // тут объявляем sum_6
 // тут объявляем error_6
-let sum_6: any;
+let sum_6: number;
 let error_6: boolean = false;
 
 function f06(): void {
     let input1: number = parseInt((<HTMLInputElement>document.querySelector('input.i-61')).value)
     let input2: number = parseInt((<HTMLInputElement>document.querySelector('input.i-62')).value)
 
-    sum_6 = input1 + input2
+    sum_6 = input1 + input2;
     if (sum_6 > 0) {
         console.log(sum_6, error_6)
     } else {
@@ -124,15 +124,15 @@ document.querySelector('.b-6').addEventListener('click', f06);
 // Функция f07 получает строки из input.i-71 и input.i-72. В переменную max_7 функция должна записать большую из двух строк. Прямым сравнением. Тип переменной max_7 задайте самостоятельно. Выведите переменную max_7 в .out-7.
 
 // тут объявляем max_7
-let max_7: string
+let max_7: string;
 
 function f07(): void {
-    let input1: string = (<HTMLInputElement>document.querySelector('input.i-71')).value
-    let input2: string = (<HTMLInputElement>document.querySelector('input.i-72')).value
+    let input1: string = (<HTMLInputElement>document.querySelector('input.i-71')).value;
+    let input2: string = (<HTMLInputElement>document.querySelector('input.i-72')).value;
 
-    input1 > input2 ? max_7 = input1 : max_7 = input2
+    input1 > input2 ? max_7 = input1 : max_7 = input2;
 
-    document.querySelector('.out-7').textContent = max_7
+    document.querySelector('.out-7').textContent = max_7;
 }
 
 document.querySelector('.b-7').addEventListener('click', f07);
@@ -143,10 +143,10 @@ document.querySelector('.b-7').addEventListener('click', f07);
 
 
 // тут объявляем val_8
-let val_8: any;
+let val_8: string;
 
 function f08(): void {
-    val_8 = (<HTMLSelectElement>document.querySelector('select.s-8')).value
+    val_8 = (<HTMLSelectElement>document.querySelector('select.s-8')).value;
     document.querySelector('.out-8').textContent = val_8
 }
 
@@ -279,13 +279,13 @@ document.querySelector('.b-15').addEventListener('click', f15);
 // Создан элемент input.i-16. При вводе символов в него выводите количество введенных символов в переменную res_16. Выводите переменную res_16 в .out-16. 
 
 // тут объявляем res_16
-let res_16: string
+let res_16: number
 
 function f16(): void {
     let input: string = (<HTMLInputElement>document.querySelector('input.i-16')).value;
-    res_16 = String(input.length);
+    res_16 = input.length;
 
-    document.querySelector('.out-16').textContent = res_16
+    document.querySelector('.out-16').textContent = String(res_16)
 
 }
 

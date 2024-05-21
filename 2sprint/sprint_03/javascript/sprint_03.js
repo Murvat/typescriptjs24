@@ -3,8 +3,8 @@
 // тут объявляете s_1
 let s_1;
 function f01() {
-    s_1 = document.querySelector('input.i-1');
-    console.log(s_1.value);
+    s_1 = document.querySelector('input.i-1').value;
+    console.log(s_1);
 }
 document.querySelector('.b-1').addEventListener('click', f01);
 // Task 02 
@@ -12,8 +12,8 @@ document.querySelector('.b-1').addEventListener('click', f01);
 // тут объявляете res_2
 let res;
 function f02() {
-    res = document.querySelector('input.i-2');
-    console.log(typeof +res.value);
+    res = parseInt(document.querySelector('input.i-2').value);
+    console.log(res);
 }
 document.querySelector('.b-2').addEventListener('click', f02);
 // Task 03
@@ -35,13 +35,13 @@ document.querySelector('.b-3').addEventListener('click', f03);
 // Напишите функцию, f04, которая получает два ЧИСЛА из input.i-41 и input.i-41 и меньшее присваивает в переменную min_4. Тип данных min_4 определите самостоятельно. Для проверки выведите min_4 в консоль.
 let min_4;
 function f04() {
-    let input1 = document.querySelector('input.i-41');
-    let input2 = document.querySelector('input.i-42');
-    if (input1.value < input2.value) {
-        min_4 = input1.value;
+    let input1 = parseInt(document.querySelector('input.i-41').value);
+    let input2 = parseInt(document.querySelector('input.i-42').value);
+    if (input1 < input2) {
+        min_4 = input1;
     }
     else {
-        min_4 = input2.value;
+        min_4 = input2;
     }
     console.log(min_4);
 }
@@ -53,9 +53,9 @@ document.querySelector('.b-4').addEventListener('click', f04);
 let sum_5;
 let error_5 = false;
 function f05() {
-    let input1 = document.querySelector('input.i-51');
-    let input2 = document.querySelector('input.i-52');
-    sum_5 = Number(input1.value) + Number(input2.value);
+    let input1 = parseInt(document.querySelector('input.i-51').value);
+    let input2 = parseInt(document.querySelector('input.i-52').value);
+    sum_5 = input1 + input2;
     if (sum_5 > 0) {
         console.log(sum_5, error_5);
     }
@@ -194,8 +194,8 @@ document.querySelector('.b-15').addEventListener('click', f15);
 let res_16;
 function f16() {
     let input = document.querySelector('input.i-16').value;
-    res_16 = String(input.length);
-    document.querySelector('.out-16').textContent = res_16;
+    res_16 = input.length;
+    document.querySelector('.out-16').textContent = String(res_16);
 }
 document.querySelector('.i-16').addEventListener('input', f16);
 // Task 17

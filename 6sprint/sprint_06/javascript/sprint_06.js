@@ -71,7 +71,8 @@ const f08 = () => {
     num % 2 === 0 ? ar_08.push(num) : ar_08.unshift(num);
     let out = '';
     for (let item of ar_08) {
-        out += item + '-';
+        if (!Number.isNaN(item))
+            out += item + '-';
     }
     document.querySelector('.out-8').textContent = out;
 };
@@ -106,14 +107,24 @@ document.querySelector('.b-10').addEventListener('click', () => {
 // Task 11
 // Создайте функцию, которая выводит в .out-11 одномерный массив ar_11. Если в массиве встречается число 1, то на выводе оно заменяется на 'X' - латинскую X в верхнем регистре. Разделитель - пробел.
 const ar_11 = [1, 0, 0, 0, 0];
-// тут создаете f11 стрелочную!!!
-// document.querySelector('.b-11').addEventListener('click', f11);
+const f11 = () => {
+    let res = ar_11.map(item => item === 1 ? 'X' : item);
+    let out = '';
+    res.forEach(elem => out += elem + ' ');
+    document.querySelector('.out-11').textContent = out;
+};
+document.querySelector('.b-11').addEventListener('click', f11);
 // Task 12
 // Создайте функцию, которая выводит в .out-12 одномерный массив ar_12. Если в массиве встречается число 1, то на выводе оно заменяется на 'X' - латинскую X в верхнем регистре. Разделитель - пробел. При нажатии кнопки значение 1 в массиве должно смещаться вправо, а старое положение заменять на 0. Положение единицы определяется счетчиком count. 
 const ar_12 = [1, 0, 0, 0, 0];
 let count = 0;
-// тут создаете f12 стрелочную!!!
-// document.querySelector('.b-12').addEventListener('click', f12);
+const f12 = () => {
+    for (let i = 0; i < ar_12.length; i++) {
+        ar_12[i] = 1;
+    }
+    console.log(ar_12);
+};
+document.querySelector('.b-12').addEventListener('click', f12);
 // Task 13
 //  Создайте функцию которая в массиве ar_13 заменяет числа 1 на 0, а 0 на 1. Выводит массив на страницу, разделитель между элементами - пробел, разделитель между строками перенос строки.
 const ar_13 = [
@@ -147,6 +158,7 @@ let k18 = [true, false];
 // Task 19
 // Создан кортеж k19 readonly тип boolean, содержащий элемент true, false. Напишите функцию f19, которая выводит в .out-19 длину кортежа. Кортеж объявлен глобально по отношению к функции. 
 let k19 = [true, false];
+export {};
 // тут создаете f19 стрелочную!!!
 // document.querySelector('.b-19').addEventListener('click', f19);
 // Task 20

@@ -177,13 +177,18 @@ const ar_12: number[] = [1, 0, 0, 0, 0];
 let count: number = 0;
 
 const f12 = (): void => {
-    for (let i = 0; i < ar_12.length; i++) {
-        ar_12[i] = 1;
-
+    if (count < ar_12.length) {
+        if (ar_12[count] === 1) {
+            ar_12[count] = 0;
+            count === ar_12.length - 1 ? count = 0 : count++;
+            ar_12[count] = 1;
+        }
     }
-    console.log(ar_12)
 
-
+    let res: (string | number)[] = ar_12.map(item => item === 1 ? 'X' : item);
+    let out: string = '';
+    res.forEach(elem => out += elem + ' ');
+    document.querySelector('.out-12').textContent = out;
 }
 document.querySelector('.b-12').addEventListener('click', f12);
 
@@ -196,31 +201,50 @@ const ar_13: number[][] = [
     [1, 0, 1]
 ];
 
-// тут создаете f13 стрелочную!!!
+const f13 = (): void => {
+    let out: string = ''
+    for (let i = 0; i < ar_13.length; i++) {
+        for (let j = 0; j < ar_13.length; j++) {
+            if (ar_13[i][j] === 1) {
+                ar_13[i][j] = 0
+            } else if (ar_13[i][j] === 0) {
+                ar_13[i][j] = 1
+            }
+            out += ar_13[i][j] + ' ';
+        }
+        out += '<br>'
+    }
+    (<HTMLElement>document.querySelector('.out-13')).innerHTML = out;
+}
 
-
-// document.querySelector('.b-13').addEventListener('click', f13);
+document.querySelector('.b-13').addEventListener('click', f13);
 
 // Task 14
 // Создайте кортеж k14 тип данных string, string и заполните его 'type', 'script'. Для проверки выведите в консоль.
 
-// const k14
+const k14: [string, string] = ['type', 'script'];
+console.log(k14);
 
 
 // Task 15
 // Создайте кортеж k15 тип данных number, number и заполните его числами 77, 99. Для проверки выведите в консоль.
 
-// const k15
+const k15: [number, number] = [77, 99];
+console.log(k15);
 
 // Task 16
 // Создан кортеж k16. Напишите функцию, которая меняет в нем числа - добавляет к каждому числу по 10 и выводит в .out-16 сумму элементов кортежа.
 
 const k16: [number, number] = [77, 88];
 
-// тут создаете f16 стрелочную!!!
+const f16 = (): void => {
+    let arr: number[] = k16.map(elem => elem += 10);
+    let numSum = arr.reduce((accum, currVal) => accum + currVal, 0);
+    document.querySelector('.out-16').textContent = String(numSum)
+}
 
 
-// document.querySelector('.b-16').addEventListener('click', f16);
+document.querySelector('.b-16').addEventListener('click', f16);
 
 
 // Task 17
@@ -228,9 +252,12 @@ const k16: [number, number] = [77, 88];
 
 let k17: [...number[]] = [2, 2, 3, 4];
 
-// тут создаете f17 стрелочную!!!
+const f17 = (): void => {
+    let sum = k17.reduce((accum, initVal) => accum + initVal, 0)
+    document.querySelector('.out-17').textContent = String(sum)
+}
 
-// document.querySelector('.b-17').addEventListener('click', f17);
+document.querySelector('.b-17').addEventListener('click', f17);
 
 
 
@@ -240,9 +267,14 @@ let k17: [...number[]] = [2, 2, 3, 4];
 let k18: readonly [boolean, boolean] = [true, false];
 
 // тут создаете f18 стрелочную!!!
+const f18 = (): void => {
+    let out: string = '';
+    k18.forEach(elem => out += elem + ' ')
+    document.querySelector('.out-18').textContent = out;
+}
 
 
-// document.querySelector('.b-18').addEventListener('click', f18);
+document.querySelector('.b-18').addEventListener('click', f18);
 
 // Task 19
 // Создан кортеж k19 readonly тип boolean, содержащий элемент true, false. Напишите функцию f19, которая выводит в .out-19 длину кортежа. Кортеж объявлен глобально по отношению к функции. 
@@ -250,11 +282,14 @@ let k18: readonly [boolean, boolean] = [true, false];
 let k19: readonly [boolean, boolean] = [true, false];
 
 // тут создаете f19 стрелочную!!!
+const f19 = (): void => {
+    document.querySelector('.out-19').textContent = String(k19.length)
+}
 
-
-// document.querySelector('.b-19').addEventListener('click', f19);
+document.querySelector('.b-19').addEventListener('click', f19);
 
 // Task 20
 // Создайте кортеж k20, содержащий массив чисел [2, 3]. Выведите в консоль.
 
-// const k20 
+const k20: [number, number] = [2, 3];
+console.log(k20);

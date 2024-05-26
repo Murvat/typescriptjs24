@@ -236,7 +236,7 @@ const obj_13: { title: string, step: number, defense: number, stamina: number, h
 }
 
 const f_13 = ({ title, step }: { title: string, step: number }): string => {
-    return;
+    return title;
 }
 
 document.querySelector('.b-13').addEventListener('click', (): void => {
@@ -247,7 +247,7 @@ document.querySelector('.b-13').addEventListener('click', (): void => {
 // Функция получает объект как аргумент, возвращает значение свойства hit. Не забывайте прописывать тип функции!!!
 
 const f_14 = ({ hit }: { hit: number[] }): number[] => {
-    return;
+    return hit;
 }
 
 document.querySelector('.b-14').addEventListener('click', (): void => {
@@ -257,10 +257,13 @@ document.querySelector('.b-14').addEventListener('click', (): void => {
 // Task 15
 // Функция получаем объект как аргумент, и возвращает true, если есть хотя бы один удар (hit) по силе больший чем 5 и false в противном случае.
 
-// const f_15 = ({ hit }: { hit: number[] }): тут напишите тип => {
+const f_15 = ({ hit }: { hit: number[] }): boolean => {
+    for (let item of hit) {
+        return item > 5 ? true : false
+    }
 
-// }
+}
 
 document.querySelector('.b-15').addEventListener('click', (): void => {
-    // document.querySelector('.out-15').textContent = String(f_15(obj_13));
+    document.querySelector('.out-15').textContent = String(f_15(obj_13));
 });

@@ -1,9 +1,6 @@
 // Task 01
 // Создайте массив чисел ar_1 содержащих элементы  77, 88, 99 в таком же порядке как указано. Тип укажите самостоятельно. Выведите в консоль.
 
-import { copyFile } from "fs";
-import { idText } from "typescript";
-
 
 const ar_1: number[] = [77, 88, 99];
 console.log(ar_1)

@@ -1,10 +1,6 @@
 // Task 01
 // В TS можно применять простые функции. Но не интересно. Пример функции - аналога того что мы писали в JS. Запустите, посмотрите результат. Обратите внимание, функция будет продолжать работу при return '4', return false. Т.е. никакого контроля за типами данных нет. Снимите комментарий и убедитесь.
 
-import { randomBytes } from "crypto";
-import { off, resourceUsage } from "process";
-import { RetryHandler } from "undici-types";
-
 function f01() {
     return 4;
 }

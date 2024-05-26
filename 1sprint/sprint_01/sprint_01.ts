@@ -1,7 +1,6 @@
 // Task 01
 // Создайте константу p_01 (строка) содержащую строку 'type script'. Выведите в консоль.
 
-import { error } from "console";
 
 const p_01: string = 'type script';
 console.log(p_01);

@@ -1,10 +1,5 @@
 // Task 01
 // По нажатию кнопки .b-1 запускается функция f01. Функция должна присвоить переменной s_1 введенный в input.i-1 текст. Тип переменной s_1 задайте самостоятельно. Для проверки выведите s_1 в консоль.
-
-import { BlobOptions } from "buffer";
-import { error } from "console";
-import { HtmlAttributes } from "csstype";
-
 // тут объявляете s_1
 let s_1: string;
 function f01(): void {

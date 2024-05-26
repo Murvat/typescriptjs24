@@ -1,35 +1,71 @@
 // Внимание! В данном спринте применяется иной подход к описанию задач. Здесь один класс может описываться в разных тасках. Учтите это!
 
+
 // Task 01
 // Создайте класс Paragraph_01 содержащий следующие свойства: text - текст внутри параграфа. Тип укажите самостоятельно. Реализуйте метод render который создает объект p (тег параграф), добавляет в него текст из свойства text и возвращает параграф. 
+class Paragraph_01 {
+    text: string;
+    render(): HTMLParagraphElement {
+        let pElem = document.createElement('p') as HTMLParagraphElement;
+        pElem.textContent = this.text;
+        return pElem
+    }
+}
 
-// тут пишем класс
-
-// Для проверки кода снимите комментарий ниже. После проверки - можно вернуть комментарий, чтобы не мешал вывод. Для остальных задач - аналогично.
-// const p_01 = new Paragraph_01();
-// p_01.text = 'A paragraph is a series of sentences that are organized and coherent.';
-// document.querySelector('.out-1').append(p_01.render());
-
+const p_01 = new Paragraph_01();
+p_01.text = 'A paragraph is a series of sentences that are organized and coherent.';
+document.querySelector('.out-1').append(p_01.render());
 
 // Task 02
 // Создайте класс Paragraph_02. Скопируйте в него реализацию свойств и методов из Paragraph_01. Допишите конструктор, который принимает текст и присваивает его свойству text класса. Кстати, надеюсь вы догадались указать, что метод render возвращает тип HTMLParagraphElement.
 
 // тут пишем класс
+class Paragraph_02 {
+    constructor(text: string) {
+        this.text = text;
 
-// Для проверки кода снимите комментарий ниже
-// const p_02 = new Paragraph_02('В раю без изменений.');
-// document.querySelector('.out-2').append(p_02.render());
+    }
+    text: string;
+    render(): HTMLParagraphElement {
+        let pElem = (<HTMLParagraphElement>document.createElement('p'));
+        pElem.textContent = this.text;
+        return pElem
+
+    }
+}
+const p_02 = new Paragraph_02('В раю без изменений.');
+document.querySelector('.out-2').append(p_02.render());
 
 
 // Task 03
 // Создайте класс Paragraph_03. Скопируйте в него реализацию свойств и методов из Paragraph_02. Добавьте свойство bold типа boolean, которое по умолчанию равно false. В метод render() добавьте строку, которая проверяет свойство bold и если оно равно true, оборачивает весь текст внутри параграфа тегом b. В конструктор добавьте вторым аргументом свойство bold.
 
-// тут пишем класс
+class Paragraph_03 {
+    constructor(text: string, bold: boolean = true) {
+        this.text = text;
+        this.bold = bold
+    }
 
+    text: string;
+    bold: boolean;
+    render(): HTMLParagraphElement {
+        let pElem = document.createElement('p') as HTMLParagraphElement;
+        if (this.bold) {
+            let bElem = document.createElement('b');
+            bElem.textContent = this.text;
+            pElem.append(bElem);
+        } else {
+            pElem.textContent = this.text;
+        }
 
-// Для проверки кода снимите комментарий ниже
-// const p_03 = new Paragraph_03('Земля – это память, за которую стоит бороться.', false);
-// document.querySelector('.out-3').append(p_03.render());
+        return pElem;
+
+    }
+
+}
+
+const p_03 = new Paragraph_03('Земля – это память, за которую стоит бороться.', false);
+document.querySelector('.out-3').append(p_03.render());
 
 // Task 04
 // Внесите изменение в предыдущий класс, сделав свойство bold, в функции конструкторе - необязательным.

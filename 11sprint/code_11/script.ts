@@ -1,12 +1,12 @@
 class T01 {
     public n1: number;
     public n2: number;
-    private n3: number;
+    protected n3: number;
     constructor(a: number, b: number) {
         this.n1 = a;
         this.n2 = b;
     }
-    max(): void {
+    public max(): void {
         this.n3 = Math.max(this.n1, this.n2)
     }
 }
@@ -21,7 +21,7 @@ class T02 extends T01 {
     }
 
     min() {
-        this.maxNum = 5;
+        this.n3 = 5;
     }
 }
 
